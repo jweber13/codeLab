@@ -1,0 +1,9 @@
+HTTP/1.0 201 CREATED
+Date: Wed, 23 Jul 2014 16:59:54 GMT
+Server: WSGIServer/0.1 Python/2.7.6
+Vary: Accept, Cookie
+X-Frame-Options: SAMEORIGIN
+Content-Type: application/json
+Allow: GET, POST, HEAD, OPTIONS
+
+{"id": 1, "name": "", "position": "'tmp'", "owner": "tom"}
