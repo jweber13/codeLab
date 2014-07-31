@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'gunicorn',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -55,10 +56,17 @@ WSGI_APPLICATION = 'fig_codelab.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
+#import dj_database_url
+#DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+	'ENGINE': 'django.db.backends.sqlite3',
+	'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'default_db',
+#	'USER': '',
+#	'PASSWORD': '',
+#	'HOST': '',
     }
 }
 
