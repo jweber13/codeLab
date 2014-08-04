@@ -11,14 +11,15 @@ def setup():
 	local("ssh -i ~/.ssh/ec2codelabjw.pem ubuntu@54.186.155.42")
 
 def update():
+	run("sudo service stop fig_codelab")
 	run("cd codeLab")
 	run("git pull")
-	
+
 def sample():
 	print("status check")
 
 def run_upstart():
-	run("suder service restart fig_codelab")
+	run("sudo service start fig_codelab")
 
 def migrate():
 	run("python manage.py syncdb --migrate")
