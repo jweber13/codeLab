@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gunicorn',
+    'storages',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -86,8 +87,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
-
-#STATIC_ROOT=path.join(PROJECT_ROOT, 'static')
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY', '')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_KEY', '')
+#AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+AWS_STORAGE_BUCKET_NAME = 'codelabjw'
+AWS_QUERYSTRING_AUTH = False
+#S3_URL = 'https://%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+STATIC_ROOT = 'http://codelabjw.s3.amazonaws.com'
 #STATIC_URL=path.join(PROJECT_ROOT, 'static')
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
