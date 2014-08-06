@@ -1,0 +1,14 @@
+image docker.vokalinteractive.com/github.com/jweber13/codeLab
+env:
+    - AWS_ACCESS_KEY_ID={{awsAccessKey}}
+    - AWS_SECRET_ACCESS_KEY={{awsSecretKey}}
+
+script:
+    - pip install -r requirements.txt
+    - cd fig_codelab
+    - python manage.py test
+
+deploy:
+    bash:
+        script: 
+            - fab staging update snapshot
