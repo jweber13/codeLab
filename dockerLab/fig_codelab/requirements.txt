@@ -1,0 +1,8 @@
+Django
+south
+djangorestframework
+markdown
+django-filter
+django-storages
+gunicorn
+virtualenv

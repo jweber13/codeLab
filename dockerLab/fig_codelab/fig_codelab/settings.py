@@ -84,6 +84,34 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+#    ...
+    'formatters': {
+        'loggly': {
+            'format':'loggly: %(message)s',
+        },
+    },
+    'handlers': {
+#        ...
+        'logging.handlers.SysLogHandler': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.SysLogHandler',
+            'facility': 'local5',
+            'formatter': 'loggly',
+        },
+    },
+    'loggers': {
+#        ...
+        'loggly_logs':{
+            'handlers': ['logging.handlers.SysLogHandler'],
+            'propagate': True,
+            'format':'loggly: %(message)s',
+            'level': 'DEBUG',
+        },
+    }
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
